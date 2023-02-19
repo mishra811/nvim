@@ -19,7 +19,7 @@ vim.cmd [[
 
 -- SHORTCUT FOR OPENNING THIS CONFIG FILE
 vim.cmd [[
-  nnoremap <space>c :tabedit ~/.config/nvim/init.lua<CR>
+  nnoremap <space>c :e ~/.config/nvim/init.lua<CR>
 ]]
 
 -- SHORTCUT FOR SETTING NONUMBER
