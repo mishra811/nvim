@@ -223,6 +223,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/aspirin/.local/share/nvim/site/pack/packer/start/vim-rhubarb",
     url = "https://github.com/tpope/vim-rhubarb"
+  },
+  ["vscode.nvim"] = {
+    loaded = true,
+    path = "/home/aspirin/.local/share/nvim/site/pack/packer/start/vscode.nvim",
+    url = "https://github.com/Mofiqul/vscode.nvim"
   }
 }
 

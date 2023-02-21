@@ -18,6 +18,7 @@ end
 packer.startup(function(use)
   -- Package manager
   -- use { 'neoclide/coc.nvim', branch = 'release' }
+  use 'Mofiqul/vscode.nvim'
   use 'wbthomason/packer.nvim'
   use 'simrat39/rust-tools.nvim'
   use { 'm00qek/baleia.nvim', tag = 'v1.2.0' }
@@ -126,6 +127,16 @@ vim.api.nvim_create_autocmd('BufWritePost', {
   pattern = vim.fn.expand '$MYVIMRC',
 })
 
+require "aspirin.indentline"
+require "aspirin.gitsigns"
+require "aspirin.autopairs"
+require "aspirin.comments"
+require "aspirin.vimcmd"
+require "aspirin.vimsettings"
+require "aspirin.image"
+require "aspirin.cmp"
+require "aspirin.harpoon"
+
 vim.notify = function(msg, log_level, _opts)
   if msg:match("exit code") then return end
   if log_level == vim.log.levels.ERROR then
@@ -135,17 +146,6 @@ vim.notify = function(msg, log_level, _opts)
   end
 end
 
-require "aspirin.indentline"
-require "aspirin.lualine"
-require "aspirin.gitsigns"
-require "aspirin.autopairs"
-require "aspirin.comments"
-require "aspirin.vimcmd"
-require "aspirin.vimsettings"
-require "aspirin.image"
-require "aspirin.colorscheme"
-require "aspirin.cmp"
-require "aspirin.harpoon"
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
@@ -364,3 +364,41 @@ mason_lspconfig.setup_handlers {
 require('fidget').setup()
 
 require 'lspconfig'.solidity.setup {}
+
+-- VSCODE THEME INTEGRATIONS
+local c = require('vscode.colors').get_colors()
+require('vscode').setup({
+  -- Enable transparent background
+  transparent = false,
+  -- Enable italic comment
+  italic_comments = false,
+  -- Disable nvim-tree background color
+  disable_nvimtree_bg = true,
+  -- Override colors (see ./lua/vscode/colors.lua)
+  color_overrides = {
+    vscLineNumber = '#808080',
+  },
+  -- Override highlight groups (see ./lua/vscode/theme.lua)
+  group_overrides = {
+    -- this supports the same val table as vim.api.nvim_set_hl
+    -- use colors from this colorscheme by requiring vscode.colors!
+    Cursor = { fg = c.vscDarkBlue, bg = c.vscLightGreen, bold = true },
+  }
+})
+
+
+-- LUALINE INTEGRATIONS
+local status_ok, lualine = pcall(require, "lualine")
+if not status_ok then
+  return
+end
+
+-- See `:help lualine.txt`
+lualine.setup {
+  options = {
+    icons_enabled = true,
+    theme = 'vscode',
+    component_separators = '|',
+    section_separators = '',
+  },
+}
