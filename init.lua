@@ -17,7 +17,7 @@ end
 -- PACKAGE MANAGER INTEGRATIONS
 packer.startup(function(use)
   -- Package manager
-  -- use 'folke/tokyonight.nvim'
+  -- use { 'neoclide/coc.nvim', branch = 'release' }
   use 'wbthomason/packer.nvim'
   use 'simrat39/rust-tools.nvim'
   use { 'm00qek/baleia.nvim', tag = 'v1.2.0' }
@@ -64,7 +64,6 @@ packer.startup(function(use)
     'hrsh7th/nvim-cmp',
     requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
   }
-
   use { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     run = function()
@@ -204,7 +203,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'help', 'vim' },
+  ensure_installed = { 'c', 'solidity', 'java', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'help', 'vim' },
 
   highlight = { enable = true },
   indent = { enable = true, disable = { 'python' } },
@@ -320,12 +319,12 @@ end
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
-  -- clangd = {},
+  clangd = {},
   -- gopls = {},
-  -- pyright = {},
-  -- rust_analyzer = {},
-  -- tsserver = {},
-
+  pyright = {},
+  rust_analyzer = {},
+  tsserver = {},
+  emmet_ls = {},
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = true },
@@ -363,3 +362,5 @@ mason_lspconfig.setup_handlers {
 
 -- Turn on lsp status information
 require('fidget').setup()
+
+require 'lspconfig'.solidity.setup {}

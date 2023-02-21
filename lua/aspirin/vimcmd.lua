@@ -1,4 +1,3 @@
-
 -- BUFFER KEYMAPS
 vim.cmd [[
   nnoremap <silent><TAB> :bnext<CR>
@@ -31,4 +30,3 @@ vim.cmd [[
   nnoremap <S-w> :bdelete<CR>
   nnoremap <space>k :Telescope keymaps<CR>
 ]]
-

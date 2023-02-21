@@ -9,7 +9,6 @@ format.setup {
   css = { { cmd = { "prettier -W" } } },
   json = { { cmd = { "prettier -W" } } },
   yaml = { { cmd = { "prettier -W" } } },
-  solidity = { { cmd = { "prettier -W" } } },
   lua = { { cmd = {
     function()
       return string.format(
@@ -22,5 +21,8 @@ format.setup {
   typescriptreact = { { cmd = { "prettier -W", "./node_modules/.bin/eslint --fix" } } },
   typescript = { { cmd = { "prettier -W", "./node_modules/.bin/eslint --fix" } } }
 }
+
+vim.api.nvim_create_autocmd("BufWritePost",
+  { pattern = "*/**/*.sol", command = string.format("silent !forge fmt %s", vim.api.nvim_buf_get_name(0)) })
 
 vim.cmd('autocmd BufWritePost * Format')
