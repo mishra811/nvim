@@ -18,7 +18,7 @@ vim.cmd [[
 
 -- SHORTCUT FOR OPENNING THIS CONFIG FILE
 vim.cmd [[
-  nnoremap <space>c :e ~/.config/nvim/init.lua<CR>
+  nnoremap <space>c :e ~/.config/nvim/<CR>
 ]]
 
 -- SHORTCUT FOR SETTING NONUMBER
@@ -29,4 +29,8 @@ vim.cmd [[
 vim.cmd [[
   nnoremap <S-w> :bdelete<CR>
   nnoremap <space>k :Telescope keymaps<CR>
+]]
+
+vim.cmd [[
+  nnoremap  <space>l :Lazy<CR>
 ]]
