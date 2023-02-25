@@ -12,7 +12,6 @@ return {
       'nvim-lua/plenary.nvim'
     },
   },
-  { "ellisonleao/gruvbox.nvim" },
 
   'nvim-lualine/lualine.nvim', -- Fancier statusline
 

@@ -12,17 +12,17 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-require "aspirin.vimsettings"
+require "user.vimsettings"
 require('lazy').setup('plugins')
-require "aspirin.format"
-require "aspirin.indentline"
-require "aspirin.gitsigns"
-require "aspirin.autopairs"
-require "aspirin.comments"
-require "aspirin.vimcmd"
-require "aspirin.image"
-require "aspirin.cmp"
-require "aspirin.harpoon"
+require "user.format"
+require "user.indentline"
+require "user.gitsigns"
+require "user.autopairs"
+require "user.comments"
+require "user.vimcmd"
+require "user.image"
+require "user.cmp"
+require "user.harpoon"
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
@@ -240,8 +240,6 @@ mason_lspconfig.setup_handlers {
 -- Turn on lsp status information
 require('fidget').setup()
 
-require 'lspconfig'.solidity.setup {}
-
 -- VSCODE THEME INTEGRATIONS
 local c = require('vscode.colors').get_colors()
 require('vscode').setup({
@@ -253,7 +251,7 @@ require('vscode').setup({
   disable_nvimtree_bg = false,
   -- Override colors (see ./lua/vscode/colors.lua)
   color_overrides = {
-    vscLineNumber = '#5A5A5A',
+    vscLineNumber = '#808080',
   },
   -- Override highlight groups (see ./lua/vscode/theme.lua)
   group_overrides = {
@@ -274,3 +272,6 @@ require('lualine').setup {
     section_separators = '',
   },
 }
+
+
+require 'lspconfig'.solidity.setup {}
