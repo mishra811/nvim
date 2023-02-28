@@ -80,7 +80,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'solidity', 'java', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'help', 'vim' },
+  ensure_installed = { 'c', 'html', 'css', 'solidity', 'java', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'help', 'vim', 'r', 'javascript', 'markdown', 'toml', 'yaml', 'json' },
 
   highlight = { enable = true },
   indent = { enable = true, disable = { 'python' } },
@@ -199,6 +199,7 @@ local servers = {
   clangd = {},
   -- gopls = {},
   pyright = {},
+  pylsp = {},
   rust_analyzer = {},
   tsserver = {},
   emmet_ls = {},
@@ -251,7 +252,7 @@ require('vscode').setup({
   disable_nvimtree_bg = false,
   -- Override colors (see ./lua/vscode/colors.lua)
   color_overrides = {
-    vscLineNumber = '#808080',
+    vscLineNumber = '#848884',
   },
   -- Override highlight groups (see ./lua/vscode/theme.lua)
   group_overrides = {
