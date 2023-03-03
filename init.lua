@@ -204,6 +204,11 @@ local servers = {
   rust_analyzer = {},
   tsserver = {},
   emmet_ls = {},
+  cssls = {},
+  tailwindcss = {},
+  unocss = {},
+  cssmodules_ls = {},
+  jsonls = {},
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = true },
