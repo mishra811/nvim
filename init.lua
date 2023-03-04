@@ -197,10 +197,12 @@ end
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
-  clangd = {},
-  gopls = {},
-  pyright = {},
-  pylsp = {},
+  lua_ls = {
+    Lua = {
+      workspace = { checkThirdParty = true },
+      telemetry = { enable = true },
+    },
+  },
   rust_analyzer = {},
   tsserver = {},
   emmet_ls = {},
@@ -209,12 +211,10 @@ local servers = {
   unocss = {},
   cssmodules_ls = {},
   jsonls = {},
-  lua_ls = {
-    Lua = {
-      workspace = { checkThirdParty = true },
-      telemetry = { enable = true },
-    },
-  },
+  clangd = {},
+  gopls = {},
+  pyright = {},
+  pylsp = {},
 }
 
 -- Setup neovim lua configuration
@@ -279,6 +279,5 @@ require('lualine').setup {
     section_separators = '',
   },
 }
-
 
 require 'lspconfig'.solidity.setup {}
