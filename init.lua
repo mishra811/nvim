@@ -23,6 +23,7 @@ require "user.vimcmd"
 require "user.image"
 require "user.cmp"
 require "user.harpoon"
+require "user.netrw"
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
