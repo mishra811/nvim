@@ -281,8 +281,3 @@ require('lualine').setup {
     section_separators = '',
   },
 }
-
--- tailwindcss configurations
-require("cmp").config.formatting = {
-  format = require("tailwindcss-colorizer-cmp").formatter
-}
